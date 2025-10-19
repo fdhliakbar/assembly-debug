@@ -107,5 +107,5 @@ C:\>
 ```
 
 <div align="center">
-  <img src="https://i.pinimg.com/1200x/fd/a4/c2/fda4c25ab6bacf466c06995087fb0730.jpg" alt="Anime banner from K-ON"/>
+  <img src="https://i.pinimg.com/originals/39/80/19/39801915efa95200f03a95629ad3d025.gif" alt="Anime banner from K-ON"/>
 </div>
