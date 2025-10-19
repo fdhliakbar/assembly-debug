@@ -12,34 +12,38 @@ Repositori ini berisi dokumentasi dan hasil praktikum pemrograman Assembly mengg
 
 ---
 
-## Kemudian Install DEBUG
+## Kemudian Download DEBUG
 
-Program `DEBUG.COM` tidak disertakan dalam DOSBox atau Windows modern. Kalian bisa unduh file DEBUG.COM dari sumber terpercaya misalnya di FreeDOS
+Program `DEBUG.COM` tidak disertakan dalam DOSBox atau Windows modern. Kalian bisa unduh file `DEBUG.COM` dari sumber terpercaya misalnya di **FreeDOS**
 
-<a href="https://www.freedos.org/download/">Install DEBUG di FreeDOS</a> atau tinggal `DEBUG.zip` di Page ini.
+<a href="https://www.freedos.org/download/">Download DEBUG di **FreeDOS**</a> atau tinggal Download `DEBUG.zip` di Page ini.
 
-Setelah diunduh, letakkan file DEBUG.COM di dalam folder kalian (misalnya, C:\PRAK).
+Setelah diunduh, file berupa `.zip` kalian Extract dan taruh di folder kalian, misalnya `C:\PRAK`.
 
 
 ## Cara Menggunakan DOSBox
 
-1. Memulai Sesi dan Mount Drive
-Buka DOSBox, lalu lakukan mounting folder kalian (C:\PRAK) sebagai drive virtual C: di DOSBox.
+Buka DOSBox, lalu lakukan mounting folder kalian `C:\PRAK` sebagai drive virtual C: di DOSBox.
 
 ```bash
-Z:\>mount c c:\PRAKTIKUM  <-- Ganti C:\PRAKTIKUM dengan jalur folder Anda
+Z:\>mount c c:\PRAK  <-- Sesuaikan dengan path folder kalian
 Drive C is mounted as local directory C:\PRAK\
 
 Z:\>c:
-C:\>  <-- Anda sekarang berada di drive virtual C:
+C:\>
 ```
 
-2. Memulai Program Debugger
-Karena file DEBUG.COM sudah ada di folder C:\PRAKTIKUM, Anda bisa langsung menjalankannya.
+Kemudian jika `DEBUG.com` sudah ada di folder yang di tuju, `C:\PRAK` kalian bisa lansung menjalakannya. Kalau tidak ada Download dulu `DEBUG.COM`.
 
 ```bash
 C:\>debug
--  <-- Prompt berubah, Anda sudah masuk ke lingkungan DEBUG.
+-  <-- Jika Output= ILLEGAL COMMAND: DEBUG. Path anda salah arahkan ke folder BIN tempat DEBUG.com berada
+```
+
+```bash
+C:\>cd bin
+C:\BIN>debug
+-   <-- Tanda sudah berhasil
 ```
 
 ## Langkah-Langkah Praktikum (di dalam DEBUG)
