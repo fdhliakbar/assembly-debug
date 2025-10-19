@@ -4,40 +4,31 @@ Repositori ini berisi dokumentasi dan hasil praktikum pemrograman Assembly mengg
 
 ## Install DOSBOX
 
+<div align="center">
 <a href="https://www.dosbox.com/download.php?main=1">
   <img src="https://www.dosgames.com/blogimgs/dosbox-banner.png" alt="DOSBOX Banner" />
-  
 </a>
+</div>
 
 ---
 
-## Persiapan dan Instalasi
-Karena Anda menggunakan sistem operasi modern (seperti Windows 11), Anda tidak bisa menjalankan program DOS (16-bit) secara langsung. Kita akan menggunakan DOSBox sebagai emulator.
+## Kemudian Install DEBUG
 
-A. Prasyarat Wajib
-Instal DOSBox: Unduh dan instal DOSBox 0.74-3 atau versi terbaru.
+Program `DEBUG.COM` tidak disertakan dalam DOSBox atau Windows modern. Kalian bisa unduh file DEBUG.COM dari sumber terpercaya misalnya di FreeDOS
 
-Buat Folder Kerja: Buat satu folder di drive komputer Anda sebagai tempat semua file praktikum disimpan.
+<a href="https://www.freedos.org/download/">Install DEBUG di FreeDOS</a> atau tinggal `DEBUG.zip` di Page ini.
 
-Contoh: C:\PRAKTIKUM
+Setelah diunduh, letakkan file DEBUG.COM di dalam folder kalian (misalnya, C:\PRAK).
 
-Dapatkan Program DEBUG:
-
-Program DEBUG.COM tidak disertakan dalam DOSBox atau Windows modern.
-
-Cari dan unduh file DEBUG.COM dari sumber terpercaya (disarankan versi FreeDOS).
-
-Setelah diunduh, letakkan file DEBUG.COM di dalam folder kerja Anda (misalnya, C:\PRAKTIKUM).
 
 ## Cara Menggunakan DOSBox
-Langkah-langkah ini menggantikan perintah "Buka Command Prompt" yang tidak kompatibel di sistem modern.
 
 1. Memulai Sesi dan Mount Drive
-Buka DOSBox, lalu lakukan mounting (menghubungkan) folder kerja Anda (C:\PRAKTIKUM) sebagai drive virtual C: di DOSBox.
+Buka DOSBox, lalu lakukan mounting folder kalian (C:\PRAK) sebagai drive virtual C: di DOSBox.
 
 ```bash
 Z:\>mount c c:\PRAKTIKUM  <-- Ganti C:\PRAKTIKUM dengan jalur folder Anda
-Drive C is mounted as local directory C:\PRAKTIKUM\
+Drive C is mounted as local directory C:\PRAK\
 
 Z:\>c:
 C:\>  <-- Anda sekarang berada di drive virtual C:
@@ -51,7 +42,8 @@ C:\>debug
 -  <-- Prompt berubah, Anda sudah masuk ke lingkungan DEBUG.
 ```
 
-📝 Langkah-Langkah Praktikum (di dalam DEBUG)
+## Langkah-Langkah Praktikum (di dalam DEBUG)
+
 Setelah prompt berubah menjadi -, ikuti langkah-langkah Assembly sesuai modul.
 
 1. Masukkan Program (Assemble Mode)
