@@ -1,9 +1,13 @@
 # PEMROGRAMAN ASSEMBLY DENGAN DEBUG
+
 Repositori ini berisi dokumentasi dan hasil praktikum pemrograman Assembly menggunakan utilitas DEBUG di lingkungan emulator DOSBox.
 
 ## Install DOSBOX
 
-<a href="https://www.dosbox.com/download.php?main=1">Klik link ini untuk install DOSBOX</a>
+<a href="https://www.dosbox.com/download.php?main=1">
+  <img src="https://www.dosgames.com/blogimgs/dosbox-banner.png" alt="DOSBOX Banner" />
+  
+</a>
 
 ---
 
@@ -109,3 +113,7 @@ Keluar dari DEBUG (Q):
 -q
 C:\>
 ```
+
+<div align="center">
+  <img src="https://i.pinimg.com/1200x/fd/a4/c2/fda4c25ab6bacf466c06995087fb0730.jpg" alt="Anime banner from K-ON"/>
+</div>
