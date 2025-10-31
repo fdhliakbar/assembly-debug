@@ -20,7 +20,6 @@ Program `DEBUG.COM` tidak disertakan dalam DOSBox atau Windows modern. Kalian bi
 
 Setelah diunduh, file berupa `.zip` kalian Extract dan taruh di folder kalian, misalnya `C:\PRAK`.
 
-
 ## Cara Menggunakan DOSBox
 
 Buka DOSBox, lalu lakukan mounting folder kalian `C:\PRAK` sebagai drive virtual C: di DOSBox.
@@ -48,68 +47,152 @@ C:\BIN>debug
 
 ## Langkah-Langkah Praktikum (di dalam DEBUG)
 
-Setelah prompt berubah menjadi -, ikuti langkah-langkah Assembly sesuai modul.
-
-1. Masukkan Program (Assemble Mode)
-Ketik perintah A100 untuk memulai mode perakitan (assemble mode), lalu masukkan kode program berikut baris demi baris:
-
 ```bash
--a100
-xxxx:0100 MOV AH,15
-xxxx:0102 MOV AL,4
-xxxx:0104 ADD AH,AL
-xxxx:0106 MOV AX,1234
-xxxx:0109 MOV BX,F221
-xxxx:010C ADD AX,BX
-xxxx:010E MOV AX,1234
-xxxx:0111 MOV BX,9ABC
-xxxx:0114 MOV CX,5678
-xxxx:0117 MOV DX,DEF0
-xxxx:011A ADD CX,DX
-xxxx:011C ADC AX,BX
-xxxx:011E INC AL
-xxxx:011F INT 20
-xxxx:0121  <-- Tekan Enter lagi untuk keluar mode A
--
+# Mounting program ke local C
+mount c c:/
+
+# Masuk partisi C
+c:
+
+# Masuk ke direktori tempat lokasi, DEBUG.com
+cd prak/BIN
+
+DEBUG
+
+a100
 ```
 
-2. Melacak dan Menganalisis (Trace Mode)
-Ketik T (Trace) berulang kali untuk mengeksekusi satu per satu instruksi dan mencatat perubahan nilai pada register (AX, BX, CX, DX, dll.). Catat hasil perubahan register setelah setiap langkah.
+Ketikkan program
+
+```bash
+MOV ax,05
+Mov ds,ax
+Mov si,012
+Mov di,021
+Mov ax,si
+Mov di,ax
+int 20
+```
+
+Kemudian kalian bisa, tekan `ENTER`
 
 ```bash
 -t
-(Lalu ulangi "t" hingga mencapai INT 20)
 ```
 
-3. Menyimpan Program ke Disk
-Setelah selesai tracing dan Anda berada kembali di prompt -:
-
-Tentukan Ukuran Program (RCX): (Panjang program adalah 21h byte)
-
-```
--rcx
-CX 0000
-:21
-```
-
-Beri Nama File (N):
-```bash
--n PROGRAMKU.COM
-Tulis ke Disk (W):
-```
+Menyimpan program
 
 ```bash
+-n try.com
+
 -w
-Writing 00021 bytes
+Writing 0000 bytes
 ```
 
-Keluar dari DEBUG (Q):
+## Langkah Praktik 2
+
+Latihan menulis, menghitung panjang program, memberi nama, menyimpan program, memberi nama dan menjalankan program.
+
+Ketikkan program
 
 ```bash
--q
-C:\>
+Mov ah,02
+Mov dl,41
+Int 21
+Int 20
 ```
+
+Tekan `ENTER`, sekarang menentukan panjang program
+
+```bash
+rcx
+8
+n prak5.com
+w
+g # Menampilkanm hasil berupa huruf A
+q
+```
+
+## KUIS
+
+```bash
+# Cara menghapus data pada register:
+
+MOV dl,08
+int 21
+
+# Cara membuat spasi pada register:
+
+MOV dl,5f
+int 21
+
+```
+
+---
+
+## POSTEST
+
+Membuat program `1NF0RMATIKA _U4D` dengan menggunakan TABEL ASCII
 
 <div align="center">
-  <img src="https://i.pinimg.com/originals/39/80/19/39801915efa95200f03a95629ad3d025.gif" alt="Anime banner from K-ON"/>
+<a href="https://www.geeksforgeeks.org/dsa/ascii-table/">
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20240304094301/ASCII-Table-660.png" alt="ASCII Table Image"/>
+</a>
 </div>
+
+Kode program **POSTEST** dengan tabel `ASCII` gunakan `HEXADECIMAL`
+
+```bash
+a 100
+mov ah,02
+mov dl,31    ; '1' = 0x31
+int 21
+mov dl,4E    ; 'N' = 0x4E
+int 21
+mov dl,46    ; 'F' = 0x46
+int 21
+mov dl,30    ; '0' = 0x30
+int 21
+mov dl,49    ; 'I' = 0x49
+int 21
+mov dl,41    ; 'A' = 0x41
+int 21
+mov dl,20    ; spasi = 0x20
+int 21
+mov dl,5F    ; '_' = 0x5F
+int 21
+mov dl,55    ; 'U' = 0x55
+int 21
+mov dl,34    ; '4' = 0x34
+int 21
+mov dl,44    ; 'D' = 0x44
+int 21
+
+mov dl,0D
+int 21
+mov dl,0A
+int 21
+
+mov ax,4C00
+int 21
+[ENTER]
+```
+
+Kemudian RCX
+
+```bash
+RCX
+n inf.com
+w
+g
+```
+
+**NOTE**
+
+- MOV AH,02 — pilih layanan DOS untuk "tulis 1 karakter ke layar".
+- MOV DL,xx — letakkan kode ASCII karakter yang mau dicetak (xx dalam hex atau pakai 'A').
+- INT 21 — panggil layanan DOS; bila AH=02, isi DL akan dicetak.
+
+`Urutan wajib`: set AH → set DL → INT 21.
+
+---
